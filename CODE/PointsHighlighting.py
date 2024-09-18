@@ -28,7 +28,7 @@ for camera in camera_list:
         sys.exit()
 
 
-# Instante plots and GUI
+# Instantiate plots and GUI
 pc= cu.PlotCameras()
 
 for cam in camera_list:

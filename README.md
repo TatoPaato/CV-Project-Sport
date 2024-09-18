@@ -1,7 +1,10 @@
-# CV-Project: 3D camera calibration (geometry and 3D reconstruction)
-Author:  Bonan Marco 
+# CV-Project: 3D camera calibration 
+
+Author:  Bonan Marco
+
+---
 ## Contents
-- [CV-Project: 3D camera calibration (geometry and 3D reconstruction)](#cv-project-3d-camera-calibration-geometry-and-3d-reconstruction)
+- [CV-Project: 3D camera calibration](#cv-project-3d-camera-calibration)
   - [Contents](#contents)
   - [Project goal](#project-goal)
   - [Project delivery](#project-delivery)
@@ -10,6 +13,8 @@ Author:  Bonan Marco
   - [Useful links](#useful-links)
     - [Coding](#coding)
     - [Game rules (court lines)](#game-rules-court-lines)
+
+---
 
 ## Project goal
 1. Create a 3D reconstruction of the camera positions relative to the field
@@ -37,9 +42,10 @@ Code (zip folder + git) (this repository) containing:
 ## Materials
 - [Starting point github](https://github.com/Elia-Tomaselli/CV-CameraCalibration)
 - [Starting point drive](https://drive.google.com/drive/folders/1P6Bs7bx_CGXWCbx_5wyAnqc8fPY2SGxO?usp=sharing)
-- [Videos](https://drive.google.com/drive/folders/11RhLrWwb_tH9uLBCGraR55N0_Lnnaww-?usp=sharing)
-- [Calibration videos](https://drive.google.com/drive/folders/15_CCC2mGQZmn3WqdCiWEGJuTSz584Ch0?usp=sharing)
+- [Videos](https://drive.google.com/drive/folders/11RhLrWwb_tH9uLBCGraR55N0_Lnnaww-?usp=sharing) (This repo already contains some game frames for the PointsHighlighting demo)
+- [Calibration videos](https://drive.google.com/drive/folders/15_CCC2mGQZmn3WqdCiWEGJuTSz584Ch0?usp=sharing) (needed only if you want to extract new chessboard frames samples)
 
+---
 
 ## Useful links
 
