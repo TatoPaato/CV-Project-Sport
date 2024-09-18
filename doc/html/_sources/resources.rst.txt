@@ -1,0 +1,79 @@
+Resources
+=========
+Useful resources used during development of the project.
+
+Links 
+-----
+
+Materials:
+    - `Starting point github <https://github.com/Elia-Tomaselli/CV-CameraCalibration>`_
+    - `Starting point drive <https://drive.google.com/drive/folders/1P6Bs7bx_CGXWCbx_5wyAnqc8fPY2SGxO?usp=sharing>`_
+    - `Videos <https://drive.google.com/drive/folders/11RhLrWwb_tH9uLBCGraR55N0_Lnnaww-?usp=sharing>`_
+    - `Calibration videos <https://drive.google.com/drive/folders/15_CCC2mGQZmn3WqdCiWEGJuTSz584Ch0?usp=sharing>`_ 
+    
+Coding:
+    - `Camera Calibration <https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html>`_
+    - `OpenCV 4.10 documentation  <https://docs.opencv.org/4.10.0/>`_
+    - `OpenCV Fisheye <https://docs.opencv.org/4.10.0/db/d58/group__calib3d__fisheye.html>`_
+
+Useful links:
+    - `FIBA Rules <https://www.fiba.basketball/documents/official-basketball-rules/current.pdf>`_
+    - `FIVB Rules <https://www.fivb.com/wp-content/uploads/2024/03/FIVB-Volleyball_Rules_2021_2024_pe.pdf>`_
+Camera Positions
+----------------
+
+.. image:: ../../MISC/Disposition.png
+   :alt: Camera disposition on the court
+   :width: 1200 px
+   :align: center
+
+Camera positions retrieved from drawing
+
+.. list-table:: 
+   :header-rows: 1
+   :align: left
+
+   * - Cam
+     - x
+     - y
+     - z
+   * - 1
+     - -15.10
+     - -17.90
+     - 6.20
+   * - 2
+     - 0.00
+     - -17.90
+     - 6.20
+   * - 3
+     - -22.30
+     - -10.20
+     - 6.60
+   * - 4
+     - 14.80
+     - -18.10
+     - 6.20
+   * - 5
+     - -22.00
+     - 10.20
+     - 6.80
+   * - 6
+     - 0.00
+     - 10.20
+     - 6.35
+   * - 7
+     - 24.80
+     - 0.00
+     - 6.40
+   * - 8
+     - 22.00
+     - 10.00
+     - 6.35
+   * - 12
+     - 24.80
+     - -10.00
+     - 6.90
+   * - 13
+     - -22.00
+     - 0.00
+     - 7.05

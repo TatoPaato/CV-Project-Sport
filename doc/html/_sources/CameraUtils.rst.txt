@@ -1,0 +1,24 @@
+.. _DOCs:
+
+CameraUtils
+===========
+
+Classes
+-------
+
+.. autoclass:: CameraUtils.Camera
+   :members:
+   :undoc-members:
+
+.. autoclass:: CameraUtils.PlotCameras
+   :members:
+   :undoc-members:
+
+Functions
+---------
+
+.. autofunction:: CameraUtils.GetFrame
+.. autofunction:: CameraUtils.PrintMtx
+.. autofunction:: CameraUtils.RW2courtIMG
+.. autofunction:: CameraUtils.SampleFile
+.. autofunction:: CameraUtils.courtIMG2RW

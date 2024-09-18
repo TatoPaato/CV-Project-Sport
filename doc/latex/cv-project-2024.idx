@@ -1,0 +1,86 @@
+\indexentry{Camera (class in CameraUtils)@\spxentry{Camera}\spxextra{class in CameraUtils}|hyperpage}{11}
+\indexentry{camera\_number (CameraUtils.Camera attribute)@\spxentry{camera\_number}\spxextra{CameraUtils.Camera attribute}|hyperpage}{11}
+\indexentry{FISHEYE (CameraUtils.Camera attribute)@\spxentry{FISHEYE}\spxextra{CameraUtils.Camera attribute}|hyperpage}{11}
+\indexentry{chessboard\_size (CameraUtils.Camera attribute)@\spxentry{chessboard\_size}\spxextra{CameraUtils.Camera attribute}|hyperpage}{11}
+\indexentry{obj\_points (CameraUtils.Camera attribute)@\spxentry{obj\_points}\spxextra{CameraUtils.Camera attribute}|hyperpage}{11}
+\indexentry{img\_points (CameraUtils.Camera attribute)@\spxentry{img\_points}\spxextra{CameraUtils.Camera attribute}|hyperpage}{11}
+\indexentry{mtx (CameraUtils.Camera attribute)@\spxentry{mtx}\spxextra{CameraUtils.Camera attribute}|hyperpage}{11}
+\indexentry{dist (CameraUtils.Camera attribute)@\spxentry{dist}\spxextra{CameraUtils.Camera attribute}|hyperpage}{11}
+\indexentry{rvecs (CameraUtils.Camera attribute)@\spxentry{rvecs}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{tvecs (CameraUtils.Camera attribute)@\spxentry{tvecs}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{new\_mtx (CameraUtils.Camera attribute)@\spxentry{new\_mtx}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{INT\_CAL (CameraUtils.Camera attribute)@\spxentry{INT\_CAL}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{EXT\_CAL (CameraUtils.Camera attribute)@\spxentry{EXT\_CAL}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{img\_size (CameraUtils.Camera attribute)@\spxentry{img\_size}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{roi (CameraUtils.Camera attribute)@\spxentry{roi}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{corr\_world\_points (CameraUtils.Camera attribute)@\spxentry{corr\_world\_points}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{corr\_image\_points (CameraUtils.Camera attribute)@\spxentry{corr\_image\_points}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{ext\_mtx (CameraUtils.Camera attribute)@\spxentry{ext\_mtx}\spxextra{CameraUtils.Camera attribute}|hyperpage}{12}
+\indexentry{H\_mtx (CameraUtils.Camera attribute)@\spxentry{H\_mtx}\spxextra{CameraUtils.Camera attribute}|hyperpage}{13}
+\indexentry{rep\_err (CameraUtils.Camera attribute)@\spxentry{rep\_err}\spxextra{CameraUtils.Camera attribute}|hyperpage}{13}
+\indexentry{pos\_err (CameraUtils.Camera attribute)@\spxentry{pos\_err}\spxextra{CameraUtils.Camera attribute}|hyperpage}{13}
+\indexentry{\_\_init\_\_() (CameraUtils.Camera method)@\spxentry{\_\_init\_\_()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{GetSampleFrames() (CameraUtils.Camera method)@\spxentry{GetSampleFrames()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{GetCornersFromSamples() (CameraUtils.Camera method)@\spxentry{GetCornersFromSamples()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{CalibrateCamera() (CameraUtils.Camera method)@\spxentry{CalibrateCamera()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{SaveParameters() (CameraUtils.Camera method)@\spxentry{SaveParameters()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{ReadParameters() (CameraUtils.Camera method)@\spxentry{ReadParameters()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{NewOptimalCameraMatrix() (CameraUtils.Camera method)@\spxentry{NewOptimalCameraMatrix()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{TestUndistorsion() (CameraUtils.Camera method)@\spxentry{TestUndistorsion()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{GetCorrespondences() (CameraUtils.Camera method)@\spxentry{GetCorrespondences()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{AddManualCorrespondences() (CameraUtils.Camera method)@\spxentry{AddManualCorrespondences()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{ExtCalibration() (CameraUtils.Camera method)@\spxentry{ExtCalibration()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{PosError() (CameraUtils.Camera method)@\spxentry{PosError()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{SaveErrors() (CameraUtils.Camera method)@\spxentry{SaveErrors()}\spxextra{CameraUtils.Camera method}|hyperpage}{13}
+\indexentry{PlotCamera() (CameraUtils.Camera method)@\spxentry{PlotCamera()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{PlotMultipleCameras() (CameraUtils.Camera method)@\spxentry{PlotMultipleCameras()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{PlotCamera2D() (CameraUtils.Camera method)@\spxentry{PlotCamera2D()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{PlotMultipleCameras2D() (CameraUtils.Camera method)@\spxentry{PlotMultipleCameras2D()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{PrintAttributes() (CameraUtils.Camera method)@\spxentry{PrintAttributes()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{FindHomography() (CameraUtils.Camera method)@\spxentry{FindHomography()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{Court2Image() (CameraUtils.Camera method)@\spxentry{Court2Image()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{Image2Court() (CameraUtils.Camera method)@\spxentry{Image2Court()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{AddManualCorrespondences() (CameraUtils.Camera method)@\spxentry{AddManualCorrespondences()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{CalibrateCamera() (CameraUtils.Camera method)@\spxentry{CalibrateCamera()}\spxextra{CameraUtils.Camera method}|hyperpage}{14}
+\indexentry{Court2Image() (CameraUtils.Camera method)@\spxentry{Court2Image()}\spxextra{CameraUtils.Camera method}|hyperpage}{15}
+\indexentry{ExtCalibration() (CameraUtils.Camera method)@\spxentry{ExtCalibration()}\spxextra{CameraUtils.Camera method}|hyperpage}{15}
+\indexentry{FindHomography() (CameraUtils.Camera method)@\spxentry{FindHomography()}\spxextra{CameraUtils.Camera method}|hyperpage}{16}
+\indexentry{GetCornersFromSamples() (CameraUtils.Camera method)@\spxentry{GetCornersFromSamples()}\spxextra{CameraUtils.Camera method}|hyperpage}{17}
+\indexentry{GetCorrespondences() (CameraUtils.Camera method)@\spxentry{GetCorrespondences()}\spxextra{CameraUtils.Camera method}|hyperpage}{17}
+\indexentry{GetSampleFrames() (CameraUtils.Camera method)@\spxentry{GetSampleFrames()}\spxextra{CameraUtils.Camera method}|hyperpage}{18}
+\indexentry{Image2Court() (CameraUtils.Camera method)@\spxentry{Image2Court()}\spxextra{CameraUtils.Camera method}|hyperpage}{19}
+\indexentry{LoadCamera() (CameraUtils.Camera class method)@\spxentry{LoadCamera()}\spxextra{CameraUtils.Camera class method}|hyperpage}{20}
+\indexentry{NewOptimalCameraMatrix() (CameraUtils.Camera method)@\spxentry{NewOptimalCameraMatrix()}\spxextra{CameraUtils.Camera method}|hyperpage}{20}
+\indexentry{PlotCamera() (CameraUtils.Camera method)@\spxentry{PlotCamera()}\spxextra{CameraUtils.Camera method}|hyperpage}{20}
+\indexentry{PlotCamera2D() (CameraUtils.Camera method)@\spxentry{PlotCamera2D()}\spxextra{CameraUtils.Camera method}|hyperpage}{21}
+\indexentry{PlotMultipleCameras() (CameraUtils.Camera class method)@\spxentry{PlotMultipleCameras()}\spxextra{CameraUtils.Camera class method}|hyperpage}{21}
+\indexentry{PlotMultipleCameras2D() (CameraUtils.Camera class method)@\spxentry{PlotMultipleCameras2D()}\spxextra{CameraUtils.Camera class method}|hyperpage}{22}
+\indexentry{PosError() (CameraUtils.Camera method)@\spxentry{PosError()}\spxextra{CameraUtils.Camera method}|hyperpage}{23}
+\indexentry{PrintAttributes() (CameraUtils.Camera method)@\spxentry{PrintAttributes()}\spxextra{CameraUtils.Camera method}|hyperpage}{23}
+\indexentry{RepError() (CameraUtils.Camera method)@\spxentry{RepError()}\spxextra{CameraUtils.Camera method}|hyperpage}{24}
+\indexentry{SaveErrors() (CameraUtils.Camera class method)@\spxentry{SaveErrors()}\spxextra{CameraUtils.Camera class method}|hyperpage}{24}
+\indexentry{SaveParameters() (CameraUtils.Camera method)@\spxentry{SaveParameters()}\spxextra{CameraUtils.Camera method}|hyperpage}{25}
+\indexentry{TestUndistorsion() (CameraUtils.Camera method)@\spxentry{TestUndistorsion()}\spxextra{CameraUtils.Camera method}|hyperpage}{25}
+\indexentry{PlotCameras (class in CameraUtils)@\spxentry{PlotCameras}\spxextra{class in CameraUtils}|hyperpage}{25}
+\indexentry{views (CameraUtils.PlotCameras attribute)@\spxentry{views}\spxextra{CameraUtils.PlotCameras attribute}|hyperpage}{26}
+\indexentry{axes (CameraUtils.PlotCameras attribute)@\spxentry{axes}\spxextra{CameraUtils.PlotCameras attribute}|hyperpage}{26}
+\indexentry{points (CameraUtils.PlotCameras attribute)@\spxentry{points}\spxextra{CameraUtils.PlotCameras attribute}|hyperpage}{26}
+\indexentry{court\_plan (CameraUtils.PlotCameras attribute)@\spxentry{court\_plan}\spxextra{CameraUtils.PlotCameras attribute}|hyperpage}{26}
+\indexentry{color\_counter (CameraUtils.PlotCameras attribute)@\spxentry{color\_counter}\spxextra{CameraUtils.PlotCameras attribute}|hyperpage}{26}
+\indexentry{\_\_init\_\_() (CameraUtils.PlotCameras method)@\spxentry{\_\_init\_\_()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{26}
+\indexentry{AddView() (CameraUtils.PlotCameras method)@\spxentry{AddView()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{26}
+\indexentry{InitPlot() (CameraUtils.PlotCameras method)@\spxentry{InitPlot()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{26}
+\indexentry{PlotImages() (CameraUtils.PlotCameras method)@\spxentry{PlotImages()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{26}
+\indexentry{ShowViews() (CameraUtils.PlotCameras method)@\spxentry{ShowViews()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{26}
+\indexentry{\_on\_click() (CameraUtils.PlotCameras method)@\spxentry{\_on\_click()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{26}
+\indexentry{AddView() (CameraUtils.PlotCameras method)@\spxentry{AddView()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{27}
+\indexentry{ClearPoints() (CameraUtils.PlotCameras method)@\spxentry{ClearPoints()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{27}
+\indexentry{DrawPoints() (CameraUtils.PlotCameras method)@\spxentry{DrawPoints()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{27}
+\indexentry{InitPlot() (CameraUtils.PlotCameras method)@\spxentry{InitPlot()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{27}
+\indexentry{PlotImages() (CameraUtils.PlotCameras method)@\spxentry{PlotImages()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{27}
+\indexentry{ShowViews() (CameraUtils.PlotCameras method)@\spxentry{ShowViews()}\spxextra{CameraUtils.PlotCameras method}|hyperpage}{28}
+\indexentry{GetFrame() (in module CameraUtils)@\spxentry{GetFrame()}\spxextra{in module CameraUtils}|hyperpage}{28}
+\indexentry{PrintMtx() (in module CameraUtils)@\spxentry{PrintMtx()}\spxextra{in module CameraUtils}|hyperpage}{28}
+\indexentry{RW2courtIMG() (in module CameraUtils)@\spxentry{RW2courtIMG()}\spxextra{in module CameraUtils}|hyperpage}{28}
+\indexentry{SampleFile() (in module CameraUtils)@\spxentry{SampleFile()}\spxextra{in module CameraUtils}|hyperpage}{29}
+\indexentry{courtIMG2RW() (in module CameraUtils)@\spxentry{courtIMG2RW()}\spxextra{in module CameraUtils}|hyperpage}{29}

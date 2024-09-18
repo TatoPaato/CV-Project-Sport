@@ -1,0 +1,1790 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Resources" href="resources.html" /><link rel="prev" title="Configuration" href="conf.html" />
+
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
+        <title>CameraUtils - CV-Project-2024 September 2024 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">CV-Project-2024 September 2024 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">CV-Project-2024 September 2024 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Content:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Set up the project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conf.html">Configuration</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">CameraUtils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/CameraUtils.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="camerautils">
+<span id="docs"></span><h1>CameraUtils<a class="headerlink" href="#camerautils" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="CameraUtils.Camera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">CameraUtils.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">approximate_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">WIDE_LENS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera" title="Link to this definition">¶</a></dt>
+<dd><p>A class used to represent the calibration process of a camera using chessboard images.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.camera_number">
+<span class="sig-name descname"><span class="pre">camera_number</span></span><a class="headerlink" href="#CameraUtils.Camera.camera_number" title="Link to this definition">¶</a></dt>
+<dd><p>The identifier number for the camera being calibrated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.FISHEYE">
+<span class="sig-name descname"><span class="pre">FISHEYE</span></span><a class="headerlink" href="#CameraUtils.Camera.FISHEYE" title="Link to this definition">¶</a></dt>
+<dd><p>A flag indicating if the camera is a WideLens.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.chessboard_size">
+<span class="sig-name descname"><span class="pre">chessboard_size</span></span><a class="headerlink" href="#CameraUtils.Camera.chessboard_size" title="Link to this definition">¶</a></dt>
+<dd><p>The number of inner corners per chessboard row and column (e.g., (7, 6)).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.obj_points">
+<span class="sig-name descname"><span class="pre">obj_points</span></span><a class="headerlink" href="#CameraUtils.Camera.obj_points" title="Link to this definition">¶</a></dt>
+<dd><p>The 3D points in the real-world space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.img_points">
+<span class="sig-name descname"><span class="pre">img_points</span></span><a class="headerlink" href="#CameraUtils.Camera.img_points" title="Link to this definition">¶</a></dt>
+<dd><p>The 2D points in the image plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.mtx">
+<span class="sig-name descname"><span class="pre">mtx</span></span><a class="headerlink" href="#CameraUtils.Camera.mtx" title="Link to this definition">¶</a></dt>
+<dd><p>The camera matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.dist">
+<span class="sig-name descname"><span class="pre">dist</span></span><a class="headerlink" href="#CameraUtils.Camera.dist" title="Link to this definition">¶</a></dt>
+<dd><p>The distortion coefficients.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.rvecs">
+<span class="sig-name descname"><span class="pre">rvecs</span></span><a class="headerlink" href="#CameraUtils.Camera.rvecs" title="Link to this definition">¶</a></dt>
+<dd><p>The rotation vectors estimated for each pattern view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.tvecs">
+<span class="sig-name descname"><span class="pre">tvecs</span></span><a class="headerlink" href="#CameraUtils.Camera.tvecs" title="Link to this definition">¶</a></dt>
+<dd><p>The translation vectors estimated for each pattern view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.new_mtx">
+<span class="sig-name descname"><span class="pre">new_mtx</span></span><a class="headerlink" href="#CameraUtils.Camera.new_mtx" title="Link to this definition">¶</a></dt>
+<dd><p>The refined camera matrix used for undistortion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.INT_CAL">
+<span class="sig-name descname"><span class="pre">INT_CAL</span></span><a class="headerlink" href="#CameraUtils.Camera.INT_CAL" title="Link to this definition">¶</a></dt>
+<dd><p>A flag indicating whether the camera has intrinsic calibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.EXT_CAL">
+<span class="sig-name descname"><span class="pre">EXT_CAL</span></span><a class="headerlink" href="#CameraUtils.Camera.EXT_CAL" title="Link to this definition">¶</a></dt>
+<dd><p>A flag indicating whether the camera has extrinsic calibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.img_size">
+<span class="sig-name descname"><span class="pre">img_size</span></span><a class="headerlink" href="#CameraUtils.Camera.img_size" title="Link to this definition">¶</a></dt>
+<dd><p>The size of the images used for calibration (h, w, channels).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.roi">
+<span class="sig-name descname"><span class="pre">roi</span></span><a class="headerlink" href="#CameraUtils.Camera.roi" title="Link to this definition">¶</a></dt>
+<dd><p>The region of interest for the undistorted images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.corr_world_points">
+<span class="sig-name descname"><span class="pre">corr_world_points</span></span><a class="headerlink" href="#CameraUtils.Camera.corr_world_points" title="Link to this definition">¶</a></dt>
+<dd><p>A numpy array of points in 3D space, in the court reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.corr_image_points">
+<span class="sig-name descname"><span class="pre">corr_image_points</span></span><a class="headerlink" href="#CameraUtils.Camera.corr_image_points" title="Link to this definition">¶</a></dt>
+<dd><p>A numpy array of points in the 2D image coordinates corresponding to
+the real-world points (corr_world_points).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.ext_mtx">
+<span class="sig-name descname"><span class="pre">ext_mtx</span></span><a class="headerlink" href="#CameraUtils.Camera.ext_mtx" title="Link to this definition">¶</a></dt>
+<dd><p>The matrix representing the camera-to-world transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.H_mtx">
+<span class="sig-name descname"><span class="pre">H_mtx</span></span><a class="headerlink" href="#CameraUtils.Camera.H_mtx" title="Link to this definition">¶</a></dt>
+<dd><p>The homography matrix between the court and image plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.rep_err">
+<span class="sig-name descname"><span class="pre">rep_err</span></span><a class="headerlink" href="#CameraUtils.Camera.rep_err" title="Link to this definition">¶</a></dt>
+<dd><p>The overall reprojection error after intrinsic calibration, representing the quality of the calibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.Camera.pos_err">
+<span class="sig-name descname"><span class="pre">pos_err</span></span><a class="headerlink" href="#CameraUtils.Camera.pos_err" title="Link to this definition">¶</a></dt>
+<dd><p>A vector representing the positional error in 3D space after extrinsic calibration, initialized to zeros.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">approximate_position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">WIDE_LENS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the Camera object with a specific camera number, an approximate position in the real world,
+and whether or not it is WideLens. Sets all other attributes to default values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.GetSampleFrames">
+<span class="sig-name descname"><span class="pre">GetSampleFrames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">video_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_skip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.GetSampleFrames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.GetSampleFrames" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts sample frames from a video to use for camera calibration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.GetCornersFromSamples">
+<span class="sig-name descname"><span class="pre">GetCornersFromSamples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_folder</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.GetCornersFromSamples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.GetCornersFromSamples" title="Link to this definition">¶</a></dt>
+<dd><p>Reads existing images from a folder of existing samples to use for camera calibration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.CalibrateCamera">
+<span class="sig-name descname"><span class="pre">CalibrateCamera</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.CalibrateCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.CalibrateCamera" title="Link to this definition">¶</a></dt>
+<dd><p>Performs intrinsic calibration of the camera and sets the status to calibrated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.SaveParameters">
+<span class="sig-name descname"><span class="pre">SaveParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.SaveParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.SaveParameters" title="Link to this definition">¶</a></dt>
+<dd><p>Saves camera parameters to a .yaml file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.ReadParameters">
+<span class="sig-name descname"><span class="pre">ReadParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CameraUtils.Camera.ReadParameters" title="Link to this definition">¶</a></dt>
+<dd><p>Reads camera parameters from a .yaml file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.NewOptimalCameraMatrix">
+<span class="sig-name descname"><span class="pre">NewOptimalCameraMatrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.NewOptimalCameraMatrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.NewOptimalCameraMatrix" title="Link to this definition">¶</a></dt>
+<dd><p>Refines the camera matrix for the undistorsion.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.TestUndistorsion">
+<span class="sig-name descname"><span class="pre">TestUndistorsion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.TestUndistorsion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.TestUndistorsion" title="Link to this definition">¶</a></dt>
+<dd><p>Applies undistorsion to the image and shows the effect on an example.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.GetCorrespondences">
+<span class="sig-name descname"><span class="pre">GetCorrespondences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">world_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.GetCorrespondences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.GetCorrespondences" title="Link to this definition">¶</a></dt>
+<dd><p>Obtain correspondences between world points and image points through
+a manual user interface.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.AddManualCorrespondences">
+<span class="sig-name descname"><span class="pre">AddManualCorrespondences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">world_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.AddManualCorrespondences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.AddManualCorrespondences" title="Link to this definition">¶</a></dt>
+<dd><p>Manually add corresponding points to camera attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.ExtCalibration">
+<span class="sig-name descname"><span class="pre">ExtCalibration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.ExtCalibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.ExtCalibration" title="Link to this definition">¶</a></dt>
+<dd><p>Perform external camera calibration to compute the transformation matrices
+between the world and camera coordinates, also compute the homography
+matrix that map the image and court planes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.PosError">
+<span class="sig-name descname"><span class="pre">PosError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PosError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.PosError" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate and display the positional error between the approximate
+and estimated positions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.SaveErrors">
+<span class="sig-name descname"><span class="pre">SaveErrors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">`camera_list`</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.SaveErrors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.SaveErrors" title="Link to this definition">¶</a></dt>
+<dd><p><em>This is a class method.</em>
+Save the positional and re-projection errors of a list of cameras to a CSV file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.PlotCamera">
+<span class="sig-name descname"><span class="pre">PlotCamera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PlotCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.PlotCamera" title="Link to this definition">¶</a></dt>
+<dd><p>Plot the camera’s position and direction on a 3D axis. <a href="#id1"><span class="problematic" id="id2">*</span></a>This method is intended to be called by <cite>PlotMultipleCameras()</cite> class method</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.PlotMultipleCameras">
+<span class="sig-name descname"><span class="pre">PlotMultipleCameras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PlotMultipleCameras"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.PlotMultipleCameras" title="Link to this definition">¶</a></dt>
+<dd><p><em>This is a class method</em>
+Plot the positions and orientations of multiple cameras on a 3D plot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.PlotCamera2D">
+<span class="sig-name descname"><span class="pre">PlotCamera2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PlotCamera2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.PlotCamera2D" title="Link to this definition">¶</a></dt>
+<dd><p>Plot the camera’s position and direction on an axis. <a href="#id3"><span class="problematic" id="id4">*</span></a>This method is intended to be called by <cite>PlotMultipleCameras2D()</cite> class method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.PlotMultipleCameras2D">
+<span class="sig-name descname"><span class="pre">PlotMultipleCameras2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PlotMultipleCameras2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.PlotMultipleCameras2D" title="Link to this definition">¶</a></dt>
+<dd><p><em>This is a class method</em>
+Plot the positions and orientations of multiple cameras on a 2D court image.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.PrintAttributes">
+<span class="sig-name descname"><span class="pre">PrintAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skip_attributes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PrintAttributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.PrintAttributes" title="Link to this definition">¶</a></dt>
+<dd><p>Prints all the attributes of the CameraInfo instance, except for those in the skip_attributes list.
+Method useful for quick attributes checks/debugging</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.FindHomography">
+<span class="sig-name descname"><span class="pre">FindHomography</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.FindHomography"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.FindHomography" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the homography matrix from world coordinates (court plane) to image coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.Court2Image">
+<span class="sig-name descname"><span class="pre">Court2Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.Court2Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.Court2Image" title="Link to this definition">¶</a></dt>
+<dd><p>Convert court coordinates to image coordinates using the homography matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.Image2Court">
+<span class="sig-name descname"><span class="pre">Image2Court</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.Image2Court"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.Image2Court" title="Link to this definition">¶</a></dt>
+<dd><p>Convert image coordinates to court coordinates using the homography matrix.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">AddManualCorrespondences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">world_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.AddManualCorrespondences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>Manually add corresponding points to camera attributes after performing type and NaN checks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>world_points</strong> (<em>numpy.ndarray</em>) – Point coordinates (x, y, z) expressed in a numpy array with shape (n, 3),
+where <cite>n</cite> is the number of points. Example: <cite>[[x, y, z], …]</cite></p></li>
+<li><p><strong>image_points</strong> (<em>numpy.ndarray</em>) – Point coordinates (u, v) expressed in a numpy array with shape (n, 2),
+where <cite>n</cite> is the number of points. Example: <cite>[[u, v], …]</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Notes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>This method verifies that both input arrays are of type <cite>numpy.ndarray</cite>.</p></li>
+<li><p>The input arrays are checked to have the correct shapes: <cite>(n, 3)</cite> for <cite>world_points</cite> and <cite>(n, 2)</cite> for <cite>image_points</cite>.</p></li>
+<li><p>NaN values within the input arrays are filtered out before the points are stored.</p></li>
+<li><p>If any of these checks fail, appropriate error messages will be printed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">CalibrateCamera</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.CalibrateCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dd><p>Calibrate the camera and set the status to calibrated.</p>
+<p>This method performs the camera calibration process using the collected
+object points and image points. It computes the camera matrix and
+distortion coefficients. The calibration process is different for
+fisheye lenses and standard lenses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – If there is an error during the calibration process.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>For fisheye lenses, it uses <cite>cv2.fisheye.calibrate</cite> and sets the fisheye</p></li>
+</ul>
+<p>calibration flags.
+- For standard lenses, it uses <cite>cv2.calibrateCamera</cite>.
+- Sets <cite>self.INT_CAL</cite> to True if the calibration is successful.
+- Prints the calibration status.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">Court2Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.Court2Image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dd><p>Convert court coordinates to image coordinates using the homography matrix.</p>
+<p>This method maps 2D coordinates from the court plane to 2D image coordinates
+using the homography matrix. It is useful for projecting points from the court
+space onto the image plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>numpy.ndarray</em>) – A 2D numpy array of shape (n, 2) representing coordinates on the court plane in the format [x, y].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A 2D numpy array of shape (n, 2) representing the image coordinates in the format [u, v].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The method appends a column of ones to the court coordinates to convert them to homogeneous coordinates.</p></li>
+<li><p>The homography matrix <cite>self.H_mtx</cite> must be set before calling this method. If <cite>self.H_mtx</cite> is <cite>None</cite>, the method prints an error message and returns <cite>None</cite>.</p></li>
+<li><p>The coordinates are transformed using the homography matrix and normalized to obtain the (u, v) coordinates on the image plane.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#id14" title="CameraUtils.Camera.Image2Court"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Image2Court</span></code></a></dt><dd><p>Method used to convert image coordinates to court coordinates.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">ExtCalibration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.ExtCalibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd><p>Perform external camera calibration to compute the transformation matrices between the world and camera coordinates.</p>
+<p>This method calculates the rotation and translation vectors using the <cite>cv2.solvePnP</cite> function, which solves the Perspective-n-Point problem to find the position and orientation of the camera relative to the world coordinate system. It then computes the world-to-camera and camera-to-world transformation matrices and stores them as instance attributes. Additionally, it computes the homography matrix for the plane to plane mapping of the court plane to the image plane.</p>
+<section id="returns">
+<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h3>
+<p>None</p>
+</section>
+<section id="raises">
+<h3>Raises:<a class="headerlink" href="#raises" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>SystemExit</dt><dd><p>If the PnP solving process fails, an error message is printed, and the program exits.</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h3>Notes:<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>The method sets the following instance attributes:</dt><dd><ul>
+<li><dl class="simple">
+<dt><cite>self.W2C_mtx</cite><span class="classifier">numpy.ndarray</span></dt><dd><p>4x4 transformation matrix from world coordinates to camera coordinates.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>self.C2W_mtx</cite><span class="classifier">numpy.ndarray</span></dt><dd><p>4x4 transformation matrix from camera coordinates to world coordinates.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>self.EXT_CAL</cite><span class="classifier">bool</span></dt><dd><p>Flag indicating that the external calibration has been successfully completed.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>self.H_mtx</cite><span class="classifier">numpy.ndarray</span></dt><dd><p>Homography matrix for the court plane to the image plane.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>This method relies on the instance attributes:</dt><dd><ul>
+<li><dl class="simple">
+<dt><cite>self.corr_world_points</cite><span class="classifier">list of tuples</span></dt><dd><p>List of corresponding points in the world coordinates.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>self.corr_image_points</cite><span class="classifier">list of tuples</span></dt><dd><p>List of corresponding points in the image coordinates.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>self.new_mtx</cite><span class="classifier">numpy.ndarray</span></dt><dd><p>Camera matrix after undistorsion.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>self.dist</cite><span class="classifier">numpy.ndarray</span></dt><dd><p>Distortion coefficients.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">FindHomography</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.FindHomography"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the homography matrix from world coordinates (court plane) to image coordinates.</p>
+<p>This method calculates the homography matrix using corresponding world and image
+points on a plane. It utilizes the RANSAC algorithm to robustly estimate the homography.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The method requires at least 4 corresponding points in both the world and image
+coordinate systems to compute the homography matrix. If fewer than 4 points are
+provided, an error message is printed and the method returns <cite>None</cite>.</p></li>
+<li><p>The computed homography matrix <cite>H</cite> is stored in the <cite>self.H_mtx</cite> attribute.</p></li>
+<li><p>The RANSAC algorithm is used with a reprojection threshold of 5 and a confidence
+level of 0.9 to handle outliers in the point correspondences.</p></li>
+</ul>
+<p class="rubric">Example</p>
+<p>To compute the homography matrix, ensure that <cite>self.corr_world_points</cite> and
+<cite>self.corr_image_points</cite> are properly set with at least 4 corresponding points.
+Then call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">FindHomography</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>where <cite>self</cite> is an instance of the class containing this method.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">cv2.findHomography</span></code></dt><dd><p>OpenCV function used to compute the homography matrix.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">GetCornersFromSamples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_folder</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.GetCornersFromSamples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
+<dd><p>Reads existing images from a folder of existing samples to use for camera calibration.</p>
+<p>This method reads sample images and detects chessboard corners
+in these frames. It then saves the frames and the detected points
+to be used for camera calibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sample_folder</strong> (<em>str</em>) – The directory where the sampled frames are retrieved.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – If the specified sample folder does not exist.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>The images are expected to be named in a specific format:</dt><dd><p>“out{camera_number}F{format}”,
+where ‘camera_number’ is the identifier
+of the camera and ‘format’ is defined in the configuration
+(example <cite>out3F.jpg</cite> for camera number 3).</p>
+</dd>
+</dl>
+</li>
+<li><p>The method uses a chessboard pattern to detect corners in the frames.</p></li>
+<li><dl class="simple">
+<dt>It divides the frame into quadrants and saves a specified number of</dt><dd><p>sample frames from each quadrant:
+- TL: Top-Left
+- TR: Top-Right
+- BL: Bottom-Left
+- BR: Bottom-Right</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The method stops when the required number of samples from all</dt><dd><p>quadrants have been collected. The required number of steps can be
+set in the setting script NUM_OF_SAMPLES.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">GetCorrespondences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">world_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.GetCorrespondences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
+<dd><p>Obtain correspondences between world points and image points through a manual user interface.</p>
+<section id="parameters">
+<h3>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>world_points<span class="classifier">list of tuples</span></dt><dd><p>List of world points (x, y, z) that need to be mapped to the image points (They must lie on the court plane, so z=0!).</p>
+</dd>
+<dt>image_path<span class="classifier">str</span></dt><dd><p>Path to the image file in which correspondences need to be identified.</p>
+</dd>
+</dl>
+</section>
+<section id="id11">
+<h3>Returns:<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>coords<span class="classifier">list of lists</span></dt><dd><p>List of image coordinates corresponding to the world points. If acquisition is skipped or terminated, returns an empty list.
+Each coordinate is either a list of two floats [x, y] or [NaN, NaN] if the point is skipped.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h3>Notes:<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<p>This function allows the user to manually select corresponding points in the image using a GUI. The user can interact with the GUI to select points, skip points, or terminate the acquisition process.</p>
+<p>If the camera is not calibrated, the function will print a message and return without acquiring any correspondences.</p>
+<p>The user can interact with the GUI as follows:
+- Right-click on the image to select a point.
+- Press the space bar to skip the current point.
+- Press ‘n’ to skip the calibration for the current camera.
+- Press ‘t’ to terminate the point acquisition process.</p>
+<p>This method uses OpenCV for image processing and Matplotlib for the GUI.</p>
+</section>
+<section id="internal-processing">
+<h3>Internal Processing:<a class="headerlink" href="#internal-processing" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Reads the court plan image and the input image.</p></li>
+<li><p>Undistort the input image based on the camera calibration parameters.</p></li>
+<li><p>Optionally crops the image based on the region of interest (ROI).</p></li>
+<li><p>Transforms world points to court plan coordinates.</p></li>
+<li><p>Initiates a GUI for the user to select corresponding points.</p></li>
+<li><p>Handles user interactions via mouse clicks and keyboard events.</p></li>
+<li><p>Returns the list of acquired coordinates or an empty list if acquisition is skipped/terminated.</p></li>
+</ol>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">GetSampleFrames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">video_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_skip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.GetSampleFrames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts sample frames from a video to use for camera calibration.</p>
+<p>This method reads a video file, samples frames at specified intervals,
+and detects chessboard corners in these frames. It then saves the frames
+and the detected points to be used for camera calibration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>video_dir</strong> (<em>str</em>) – The directory where the video file is located.</p></li>
+<li><p><strong>frame_skip</strong> (<em>int</em>) – The number of frames to skip between each sampled frame.</p></li>
+<li><p><strong>out_dir</strong> (<em>str</em>) – The directory where the sampled frames will be saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – If the specified video file does not exist.</p></li>
+<li><p><strong>RuntimeError</strong> – If the video file cannot be opened or read.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>The video file is expected to be named in a specific format:</dt><dd><p>“out{camera_number}F{format}”,
+where ‘camera_number’ is the identifier
+of the camera and ‘format’ is defined in the configuration
+(example ‘out3F.mp4’ for camera number 3)</p>
+</dd>
+</dl>
+</li>
+<li><p>The method uses a chessboard pattern to detect corners in the frames.</p></li>
+<li><dl class="simple">
+<dt>It divides the frame into quadrants and saves a specified number of</dt><dd><p>sample frames from each quadrant:
+- TL: Top-Left
+- TR: Top-Right
+- BL: Bottom-Left
+- BR: Bottom-Right</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The method stops when the required number of samples from all</dt><dd><p>quadrants have been collected. The required number of steps can be
+set in the setting script NUM_OF_SAMPLES.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">Image2Court</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.Image2Court"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
+<dd><p>Convert image coordinates to court coordinates using the homography matrix.</p>
+<p>This method transforms 2D image coordinates into coordinates on the court plane
+by applying the inverse of the homography matrix. It is useful for mapping points
+from the image space to a corresponding position on the court.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>coords</strong> (<em>numpy.ndarray</em>) – A 2D numpy array of shape (n, 2) representing image coordinates in the format [u, v].</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A 2D numpy array of shape (n, 2) representing the coordinates on the court plane in the format [x, y].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The method appends a column of ones to the image coordinates to convert them to homogeneous coordinates.</p></li>
+<li><p>The homography matrix <cite>self.H_mtx</cite> must be set before calling this method. If <cite>self.H_mtx</cite> is <cite>None</cite>, the method prints an error message and returns <cite>None</cite>.</p></li>
+<li><p>The inverse of the homography matrix is used to transform the coordinates to the court plane.</p></li>
+<li><p>The resulting coordinates are normalized to obtain the (x, y) coordinates on the court.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#id8" title="CameraUtils.Camera.FindHomography"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FindHomography</span></code></a></dt><dd><p>Method used to compute the homography matrix which is required for this conversion.</p>
+</dd>
+<dt><a class="reference internal" href="#id6" title="CameraUtils.Camera.Court2Image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Court2Image</span></code></a></dt><dd><p>Inverse method.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.LoadCamera">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LoadCamera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.LoadCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.LoadCamera" title="Link to this definition">¶</a></dt>
+<dd><p>Load camera parameters from a .pkl file.</p>
+<p>This method deserializes the Camera object from a file in the specified
+directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_dir</strong> (<em>str</em>) – The directory where the parameters are stored.</p></li>
+<li><p><strong>camera</strong> (<em>str</em>) – The identifier for the camera to be loaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Camera object with the loaded parameters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#CameraUtils.Camera" title="CameraUtils.Camera">Camera</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – If the specified parameter directory does not exist.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The method expects the file to be named “Camera_{camera_number}.pkl”
+where <cite>{camera_number}</cite> is the identifier of the camera.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">NewOptimalCameraMatrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.NewOptimalCameraMatrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
+<dd><p>Refine the camera matrix for the undistortion process.</p>
+<p>This method computes a new optimal camera matrix based on the current
+camera matrix and distortion coefficients. It adjusts the camera matrix
+to improve the undistortion of images.</p>
+<p>Depending on whether a fisheye lens is used or a standard lens, the
+method applies different algorithms to compute the new camera matrix:</p>
+<ul class="simple">
+<li><p>For fisheye lenses, it uses
+<code class="xref py py-func docutils literal notranslate"><span class="pre">cv2.fisheye.estimateNewCameraMatrixForUndistortRectify()</span></code>.</p></li>
+<li><p>For standard lenses, it uses <code class="xref py py-func docutils literal notranslate"><span class="pre">cv2.getOptimalNewCameraMatrix()</span></code>.</p></li>
+</ul>
+<p>The computed camera matrix is stored in <cite>self.new_mtx</cite>. In the case of
+standard lenses, the method also updates <cite>self.roi</cite> with the region of
+interest.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Ensure that the <cite>self.img_size</cite>, <cite>self.mtx</cite>, and <cite>self.dist</cite> are
+correctly set before calling this method.</p></li>
+<li><p>The <cite>self.FISHEYE</cite> flag determines whether to use the fisheye or
+standard lens processing approach.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">PlotCamera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PlotCamera"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dd><p>Plot the camera’s position and direction on a 3D axis.</p>
+<p>This method visualizes the camera’s approximate position and estimated position
+on a 3D plot. It also displays a line indicating the camera’s direction vector and
+a dashed line connecting the approximate and estimated positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax</strong> (<em>matplotlib.axes._axes.Axes</em>) – The 3D axis object on which to plot the camera information.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method is intended to bella called by the PlotMultipleCameras() class method.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#id18" title="CameraUtils.Camera.PlotMultipleCameras"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlotMultipleCameras</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">PlotCamera2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PlotCamera2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dd><p>Plot the camera’s position and direction on a 2D axis over a court image.</p>
+<p>This method visualizes the camera’s estimated and approximate positions on a 2D plot
+with an overlay of a court image. It also shows the direction of the camera with a line
+and connects the estimated and approximate positions with a dashed line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ax</strong> (<em>matplotlib.axes._axes.Axes</em>) – The 2D axis object on which to plot the camera information.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p><em>This method is intended to bella called by the PlotMultipleCameras2D() class method.</em></p></li>
+<li><p>The court image is loaded from the path specified by <cite>conf.COURT_IMG_XL</cite>.</p></li>
+<li><p>The camera’s estimated position is plotted as a circular marker, while the
+approximate position is plotted as a gray downward-pointing triangle marker.</p></li>
+<li><p>A dashed red line connects the estimated position to the approximate position to
+indicate positional error.</p></li>
+<li><p>The camera’s direction is shown as a line extending from the estimated position
+in the direction of the camera’s field of view.</p></li>
+<li><p>An annotation with the camera number is placed near the approximate position,
+with a text path effect for better visibility.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#id19" title="CameraUtils.Camera.PlotMultipleCameras2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlotMultipleCameras2D</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id18">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PlotMultipleCameras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PlotMultipleCameras"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dd><p>Plot the positions and orientations of multiple cameras on a 3D plot.</p>
+<p>This class method visualizes all cameras in the provided list on a 3D axis. It
+includes the following features:</p>
+<ul class="simple">
+<li><p>Plots each camera’s approximate and estimated positions.</p></li>
+<li><p>Draws direction vectors for each camera.</p></li>
+<li><p>Optionally overlays a court image or displays predefined court points.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>camera_list</strong> (<em>list</em>) – <p>A list of camera objects, where each object should have the following methods
+and attributes:
+- <cite>PlotCamera(ax)</cite>: Method to plot a single camera on the 3D axis.
+- <cite>approximate_position</cite> (list or array-like): The known approximate position</p>
+<blockquote>
+<div><p>of the camera (x, y, z).</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><cite>C2W_mtx</cite> (numpy.ndarray): A 4x4 matrix containing the estimated position
+in the last column.</p></li>
+<li><p><cite>camera_number</cite> (int or str): An identifier for the camera.</p></li>
+<li><p><cite>pos_err</cite> (float): The positional error of the camera.</p></li>
+<li><p><cite>rep_err</cite> (float): The re-projection error of the camera.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>matplotlib.figure.Figure</em></p></li>
+<li><p><em>The figure object containing the 2D plot with camera positions.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The method creates a 3D plot with camera positions, direction vectors, and
+optional court details.</p></li>
+<li><p>Court image is plotted if <cite>conf.SHOW_COURT</cite> is <cite>True</cite>, otherwise, predefined
+court points are displayed.</p></li>
+<li><p>The plot’s axes are labeled and ticked to provide clear context for the camera
+positions.</p></li>
+</ul>
+<p class="rubric">Example</p>
+<p>To plot multiple cameras:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">CameraUtils</span><span class="o">.</span><span class="n">Camera</span><span class="o">.</span><span class="n">PlotMultipleCameras</span><span class="p">(</span><span class="n">camera_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <cite>Camera</cite> is the class containing this method, and <cite>camera_list</cite> is a list
+of camera objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id19">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PlotMultipleCameras2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PlotMultipleCameras2D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dd><p>Plot the positions of multiple cameras on a 2D court image.</p>
+<p>This class method creates a 2D plot showing the positions of all cameras in the
+provided list overlaid on a court image. Each camera’s position is plotted, and
+their respective direction vectors are displayed. The court image serves as a
+reference for the positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>camera_list</strong> (<em>list</em>) – A list of camera objects, where each object should have the <cite>PlotCamera2D(ax)</cite> method to plot its position on the 2D axis.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The figure object containing the 2D plot with camera positions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matplotlib.figure.Figure</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The court image is loaded from the path specified by <cite>conf.COURT_IMG_XL</cite>.</p></li>
+<li><p>The x and y coordinates are adjusted to match the dimensions of the image.</p></li>
+<li><p>Each camera is plotted using the <cite>PlotCamera2D</cite> method, which should be defined in the same class as this method.</p></li>
+<li><p>The axis labels are set to “x” and “y” to indicate the coordinate axes.</p></li>
+<li><p>The image axis is turned off for a cleaner display of camera positions.</p></li>
+</ul>
+<p class="rubric">Example</p>
+<p>To plot multiple cameras on a 2D image:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">CameraClass</span><span class="o">.</span><span class="n">PlotMultipleCameras2D</span><span class="p">(</span><span class="n">camera_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <cite>CameraClass</cite> is the class containing this method, and <cite>camera_list</cite> is a list of camera objects.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#id17" title="CameraUtils.Camera.PlotCamera2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlotCamera2D</span></code></a></dt><dd><p>Method used to plot individual camera positions on a 2D axis.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">PosError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PosError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate and display the positional error between the approximate and estimated positions.</p>
+<p>This method computes the Euclidean distance between the approximate_position` and the position derived from the <cite>C2W_mtx</cite> matrix. The result is printed and stored in the instance variable <cite>self.pos_err</cite>.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p><cite>self.approximate_position</cite> should be a list or array-like structure containing the
+approximate position coordinates (x, y, z).</p></li>
+<li><p><cite>self.C2W_mtx</cite> should be a 4x4 matrix where the last column represents the estimated
+position in 3D space.</p></li>
+<li><p>The Euclidean distance is calculated as the norm of the difference between the
+approximate and estimated positions.</p></li>
+<li><p>The result is printed in meters with three decimal places.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">PrintAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skip_attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['obj_points',</span> <span class="pre">'img_points']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.PrintAttributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dd><p>Prints all the attributes of the CameraInfo instance, except for those in the skip_attributes list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>skip_attributes</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – <p>A list of attribute names to exclude from printing. Default is:
+[“obj_points”,”img_points”]</p>
+<p>Input skip_attributes = None to print all attributes</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.Camera.RepError">
+<span class="sig-name descname"><span class="pre">RepError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.RepError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.Camera.RepError" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the re-projection error given the parameters found in calibration.</p>
+<p class="rubric">Notes</p>
+<p>The new refined camera matrix is used.</p>
+<p>If the camera is not calibrated (<cite>INT_CAL</cite> is False),
+the method will print a message indicating that the re-projection error
+cannot be calculated and return without performing any calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id22">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SaveErrors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.SaveErrors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dd><p>Save the positional and re-projection errors of a list of cameras to a CSV file.</p>
+<p>This class method generates a CSV file containing error data for each
+camera in the provided list. The file is saved at the specified <cite>path</cite>
+and includes the following columns:</p>
+<ul class="simple">
+<li><p><cite>CAM</cite>: Camera identifier or number.</p></li>
+<li><p><cite>x, y, z</cite>: Approximate position coordinates of the camera.</p></li>
+<li><p><cite>est. x, est. y, est. z</cite>: Estimated position coordinates from the camera’s
+<cite>C2W_mtx</cite> matrix.</p></li>
+<li><p><cite>distance</cite>: Euclidean distance between the approximate and estimated positions.</p></li>
+<li><p><cite>re-projection error</cite>: Error value representing the difference between the actual
+and projected positions, resulting from the intrinsic calibration procedure.</p></li>
+</ul>
+<p>The CSV file is formatted with headers and includes error values formatted to two
+decimal places for positions and distances, and three decimal places for re-projection
+errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>camera_list</strong> (<em>list</em>) – <p>A list of camera objects, where each object should have the following attributes:
+- <cite>approximate_position</cite> (list or array-like): The known approximate position of</p>
+<blockquote>
+<div><p>the camera (x, y, z).</p>
+</div></blockquote>
+<ul>
+<li><p><cite>C2W_mtx</cite> (numpy.ndarray): A 4x4 matrix containing the estimated position in
+the last column.</p></li>
+<li><p><cite>camera_number</cite> (int or str): An identifier for the camera.</p></li>
+<li><p><cite>pos_err</cite> (float): The positional error of the camera.</p></li>
+<li><p><cite>rep_err</cite> (float): The re-projection error of the camera.</p></li>
+</ul>
+</p></li>
+<li><p><strong>path</strong> (<em>str</em>) – The directory path where the CSV file should be saved.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The method assumes that each camera object in <cite>camera_list</cite> has the required attributes.</p></li>
+<li><p>The CSV file will be created with the name “Errors.csv” in the specified directory.</p></li>
+<li><p>Ensure that the <cite>path</cite> provided is a valid directory path.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id23">
+<span class="sig-name descname"><span class="pre">SaveParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.SaveParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
+<dd><p>Save camera parameters to a .pkl file.</p>
+<p>This method serializes the Camera object and saves it to a file in the
+specified directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>save_dir</strong> (<em>str</em>) – The directory where the parameters will be saved.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If the folder does not exist, it is created.</p></li>
+<li><p>The saved file is named “Camera_{camera_number}.pkl” where</p></li>
+</ul>
+<p><cite>{camera_number}</cite> is the identifier of the camera.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id24">
+<span class="sig-name descname"><span class="pre">TestUndistorsion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#Camera.TestUndistorsion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
+<dd><p>Test the undistorsion of the camera images.</p>
+<p>This method reads a sample image, applies the undistorsion process based on
+the calibration parameters, and visualizes the results. It also saves the
+undistorted image to a specified directory.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The sample image is read from a predefined folder.</p></li>
+<li><p>The method checks if the camera is calibrated before proceeding.</p></li>
+<li><p>If the camera uses a fisheye lens, <cite>cv2.fisheye.undistortImage</cite> is used for undistorsion.</p></li>
+<li><p>For standard lenses, <cite>cv2.undistort</cite> is used.</p></li>
+<li><p>If cropping is enabled, the undistorted image is cropped to the region of interest (ROI).</p></li>
+<li><p>The original and undistorted images are displayed side by side for comparison.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>RuntimeError</strong> – If the camera is not calibrated.</p></li>
+<li><p><strong>FileNotFoundError</strong> – If the sample image is not found.</p></li>
+<li><p><strong>Saves</strong> – </p></li>
+<li><p><strong>-----</strong> – </p></li>
+<li><p><strong>- The undistorted image is saved to a predefined directory with the filename &quot;Cam{camera_number}.jpg&quot;.</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">CameraUtils.</span></span><span class="sig-name descname"><span class="pre">PlotCameras</span></span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras" title="Link to this definition">¶</a></dt>
+<dd><p>Handles the plotting of camera views around the court and manages the visualization
+of points on the court surface across all camera views.</p>
+<p>This class is designed to initialize camera views and axes, add new camera views,
+and set up a plot layout with the court plan in the center and camera views around it.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.views">
+<span class="sig-name descname"><span class="pre">views</span></span><a class="headerlink" href="#CameraUtils.PlotCameras.views" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary mapping camera identifiers (e.g., “CAM1”, “CAM2”) to instances of
+the <cite>Camera</cite> class. This holds all the camera views.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.axes">
+<span class="sig-name descname"><span class="pre">axes</span></span><a class="headerlink" href="#CameraUtils.PlotCameras.axes" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary mapping camera identifiers and “court” to matplotlib axes objects.
+These axes are used for plotting the camera views and the court plan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.points">
+<span class="sig-name descname"><span class="pre">points</span></span><a class="headerlink" href="#CameraUtils.PlotCameras.points" title="Link to this definition">¶</a></dt>
+<dd><p>An array of shape (n, 2) to store the coordinates of points picked on the court.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.court_plan">
+<span class="sig-name descname"><span class="pre">court_plan</span></span><a class="headerlink" href="#CameraUtils.PlotCameras.court_plan" title="Link to this definition">¶</a></dt>
+<dd><p>An image representing the court plan, used as a background for plotting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.color_counter">
+<span class="sig-name descname"><span class="pre">color_counter</span></span><a class="headerlink" href="#CameraUtils.PlotCameras.color_counter" title="Link to this definition">¶</a></dt>
+<dd><p>A counter used to assign different colors to highlighted points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the <cite>PlotCameras</cite> object with empty camera views and axes, and loads
+the court plan image.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.AddView">
+<span class="sig-name descname"><span class="pre">AddView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.AddView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras.AddView" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a new camera view to the <cite>views</cite> dictionary.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.InitPlot">
+<span class="sig-name descname"><span class="pre">InitPlot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.InitPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras.InitPlot" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the plot layout with the court plan in the middle and camera views
+around it. Configures the layout and sets up the plotting environment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.PlotImages">
+<span class="sig-name descname"><span class="pre">PlotImages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.PlotImages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras.PlotImages" title="Link to this definition">¶</a></dt>
+<dd><p>Plots the images for all camera views on their respective axes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.ShowViews">
+<span class="sig-name descname"><span class="pre">ShowViews</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.ShowViews"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras.ShowViews" title="Link to this definition">¶</a></dt>
+<dd><p>Displays the plotted views and connects mouse and keyboard event handlers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras._on_click">
+<span class="sig-name descname"><span class="pre">_on_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras._on_click"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras._on_click" title="Link to this definition">¶</a></dt>
+<dd><p>Handles mouse click events to record points on the court and save them to the points attribute.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">_on_key(event):</span></span></dt>
+<dd><p>Handles keyboard events to clear points when ‘c’ is pressed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">DrawPoints():</span></span></dt>
+<dd><p>Draws the most recently added point on the images and the court plan.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">ClearPoints():</span></span></dt>
+<dd><p>Clears all recorded points from the <cite>points</cite> attribute and removes them from the plot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id25">
+<span class="sig-name descname"><span class="pre">AddView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">camera</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.AddView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a camera view to the <cite>views</cite> dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>camera</strong> (<a class="reference internal" href="#CameraUtils.Camera" title="CameraUtils.Camera"><em>Camera</em></a>) – An instance of the <cite>Camera</cite> class that will be added to the <cite>views</cite> dictionary.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The <cite>camera</cite> parameter should be an instance of the <cite>Camera</cite> class with a
+<cite>camera_number</cite> attribute that corresponds to the camera identifier (e.g., “CAM1”).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.ClearPoints">
+<span class="sig-name descname"><span class="pre">ClearPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.ClearPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras.ClearPoints" title="Link to this definition">¶</a></dt>
+<dd><p>Clears all recorded points from the <cite>points</cite> attribute and removes them from the plot.</p>
+<p>This method resets the <cite>points</cite> attribute to an empty array and iterates through all axes to remove plotted points. The figure is then updated to reflect the cleared points.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="CameraUtils.PlotCameras.DrawPoints">
+<span class="sig-name descname"><span class="pre">DrawPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.DrawPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PlotCameras.DrawPoints" title="Link to this definition">¶</a></dt>
+<dd><p>Draws the most recently added point on the images and the court plan.</p>
+<p>This method plots the last added point on all camera views and the court plan.
+It projects the point from court coordinates to image coordinates for camera views, and to the court plan for visualization. Points outside the view or court plan are excluded. The color of the points is determined by <cite>color_counter</cite>.</p>
+<p class="rubric">Notes</p>
+<p>The method updates the plot for each camera view and the court plan, and then increments the <cite>color_counter</cite> for distinguishing multiple points.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id26">
+<span class="sig-name descname"><span class="pre">InitPlot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.InitPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the plot layout with a court plan in the middle and camera views around it.</p>
+<p>This method sets up a matplotlib figure with a grid layout, placing the court plan image in the center and arranging the camera views around it. It also configures the axes for the court plan and each camera view, and sets a figure-wide title with instructions for interacting with the plot.</p>
+<p class="rubric">Notes</p>
+<p>The layout consists of a 4x3 grid, with camera views placed in locations reflecting their real distribution around the court, which is displayed in the central subplot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id27">
+<span class="sig-name descname"><span class="pre">PlotImages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.PlotImages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
+<dd><p>Plots the images for all camera views on their respective axes.</p>
+<p>This method reads images from the specified paths, undistorts them based on calibration parameters, resizes the images to improve plot rendering performance, and then displays them on their respective axes in the matplotlib figure. Each camera view is annotated with its identifier.</p>
+<p>The images are rescaled by a factor defined in <cite>conf.SCALE</cite> to enhance plotting performance. Camera identifiers are added as text annotations on the images.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id28">
+<span class="sig-name descname"><span class="pre">ShowViews</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PlotCameras.ShowViews"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
+<dd><p>Displays the plotted views and connects mouse and keyboard event handlers.</p>
+<p>This method activates the interactive GUI for highlighting points across camera views. It sets up event handlers for mouse clicks and keyboard presses, allowing users to interact with the plot, highlight points, and clear them using specific key commands. The GUI is displayed using <cite>plt.show()</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="CameraUtils.GetFrame">
+<span class="sig-prename descclassname"><span class="pre">CameraUtils.</span></span><span class="sig-name descname"><span class="pre">GetFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">video_folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cam_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#GetFrame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.GetFrame" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts and saves a specific frame from a video file.</p>
+<p>This function reads the specified frame from a video file associated with a given camera number and saves it as an image file. If the video file cannot be opened or the frame cannot be read, an error message is printed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>video_folder</strong> (<em>str</em>) – The folder where the video files are located.</p></li>
+<li><p><strong>cam_number</strong> (<em>int</em>) – The camera number to identify the video file.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – The frame number to extract from the video.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the video file cannot be opened or the frame cannot be read.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CameraUtils.PrintMtx">
+<span class="sig-prename descclassname"><span class="pre">CameraUtils.</span></span><span class="sig-name descname"><span class="pre">PrintMtx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mtx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#PrintMtx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.PrintMtx" title="Link to this definition">¶</a></dt>
+<dd><p>Print a matrix in human readable format</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CameraUtils.RW2courtIMG">
+<span class="sig-prename descclassname"><span class="pre">CameraUtils.</span></span><span class="sig-name descname"><span class="pre">RW2courtIMG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">RW_point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RF_Img</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#RW2courtIMG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.RW2courtIMG" title="Link to this definition">¶</a></dt>
+<dd><p>Transforms a point from the real-world court coordinate system to the image coordinate system
+for a court plan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>RW_point</strong> (<em>np.ndarray</em>) – A 3D point in the real-world court reference frame, represented as a numpy array
+in homogeneous coordinates, e.g., np.array([x, y, 1]).</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – The scale factor representing the ratio of pixels to meters.
+For example, a scale of 50 means 50 pixels correspond to 1 meter.</p></li>
+<li><p><strong>RF_Img</strong> (<em>list</em><em> or </em><em>tuple</em>) – A list or tuple containing the (u, v) coordinates of the reference frame origin in the image,
+corresponding to the real-world origin (x, y) of the court.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A 2D numpy array with the transformed (u, v) coordinates in the image plane.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The function uses a transformation matrix to convert the real-world court coordinates
+to the image court coordinates, applying scaling and translation to the point.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CameraUtils.SampleFile">
+<span class="sig-prename descclassname"><span class="pre">CameraUtils.</span></span><span class="sig-name descname"><span class="pre">SampleFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#SampleFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.SampleFile" title="Link to this definition">¶</a></dt>
+<dd><p>Randomly selects a file from a specified folder.</p>
+<p>This function scans the provided folder for files and randomly selects one from the list of files found. If no files are found, a warning message is printed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>folder</strong> (<em>str</em>) – The path to the folder to scan for files.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The path of the randomly selected file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – If the folder does not contain any files.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CameraUtils.courtIMG2RW">
+<span class="sig-prename descclassname"><span class="pre">CameraUtils.</span></span><span class="sig-name descname"><span class="pre">courtIMG2RW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_pnt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RF_Img</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CameraUtils.html#courtIMG2RW"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CameraUtils.courtIMG2RW" title="Link to this definition">¶</a></dt>
+<dd><p>Transforms a point from the image coordinate system to the real-world court coordinate system
+using a homogenous transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_pnt</strong> (<em>np.ndarray</em>) – A point in the image coordinate system, represented as a numpy array in homogeneous coordinates,
+e.g., np.array([[u, v, 1]]).</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – The scale factor representing the ratio of pixels to meters.
+For example, a scale of 50 means 50 pixels correspond to 1 meter.</p></li>
+<li><p><strong>RF_Img</strong> (<em>list</em><em> or </em><em>tuple</em>) – A list or tuple containing the (u, v) coordinates of the image’s reference frame origin,
+corresponding to the real-world origin (x, y) of the court.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A 2D numpy array representing the transformed (x, y) coordinates in the real-world
+court coordinate system, in meters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The function applies an inverse transformation, converting image coordinates into
+real-world court coordinates by applying translation and scaling.</p>
+</dd></dl>
+
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="resources.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Resources</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="conf.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Configuration</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Marco Bonan
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">CameraUtils</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#CameraUtils.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
+<li><a class="reference internal" href="#CameraUtils.Camera.camera_number"><code class="docutils literal notranslate"><span class="pre">Camera.camera_number</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.FISHEYE"><code class="docutils literal notranslate"><span class="pre">Camera.FISHEYE</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.chessboard_size"><code class="docutils literal notranslate"><span class="pre">Camera.chessboard_size</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.obj_points"><code class="docutils literal notranslate"><span class="pre">Camera.obj_points</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.img_points"><code class="docutils literal notranslate"><span class="pre">Camera.img_points</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.mtx"><code class="docutils literal notranslate"><span class="pre">Camera.mtx</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.dist"><code class="docutils literal notranslate"><span class="pre">Camera.dist</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.rvecs"><code class="docutils literal notranslate"><span class="pre">Camera.rvecs</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.tvecs"><code class="docutils literal notranslate"><span class="pre">Camera.tvecs</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.new_mtx"><code class="docutils literal notranslate"><span class="pre">Camera.new_mtx</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.INT_CAL"><code class="docutils literal notranslate"><span class="pre">Camera.INT_CAL</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.EXT_CAL"><code class="docutils literal notranslate"><span class="pre">Camera.EXT_CAL</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.img_size"><code class="docutils literal notranslate"><span class="pre">Camera.img_size</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.roi"><code class="docutils literal notranslate"><span class="pre">Camera.roi</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.corr_world_points"><code class="docutils literal notranslate"><span class="pre">Camera.corr_world_points</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.corr_image_points"><code class="docutils literal notranslate"><span class="pre">Camera.corr_image_points</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.ext_mtx"><code class="docutils literal notranslate"><span class="pre">Camera.ext_mtx</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.H_mtx"><code class="docutils literal notranslate"><span class="pre">Camera.H_mtx</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.rep_err"><code class="docutils literal notranslate"><span class="pre">Camera.rep_err</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.pos_err"><code class="docutils literal notranslate"><span class="pre">Camera.pos_err</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.__init__"><code class="docutils literal notranslate"><span class="pre">Camera.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.GetSampleFrames"><code class="docutils literal notranslate"><span class="pre">Camera.GetSampleFrames()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.GetCornersFromSamples"><code class="docutils literal notranslate"><span class="pre">Camera.GetCornersFromSamples()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.CalibrateCamera"><code class="docutils literal notranslate"><span class="pre">Camera.CalibrateCamera()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.SaveParameters"><code class="docutils literal notranslate"><span class="pre">Camera.SaveParameters()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.ReadParameters"><code class="docutils literal notranslate"><span class="pre">Camera.ReadParameters()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.NewOptimalCameraMatrix"><code class="docutils literal notranslate"><span class="pre">Camera.NewOptimalCameraMatrix()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.TestUndistorsion"><code class="docutils literal notranslate"><span class="pre">Camera.TestUndistorsion()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.GetCorrespondences"><code class="docutils literal notranslate"><span class="pre">Camera.GetCorrespondences()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.AddManualCorrespondences"><code class="docutils literal notranslate"><span class="pre">Camera.AddManualCorrespondences()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.ExtCalibration"><code class="docutils literal notranslate"><span class="pre">Camera.ExtCalibration()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.PosError"><code class="docutils literal notranslate"><span class="pre">Camera.PosError()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.SaveErrors"><code class="docutils literal notranslate"><span class="pre">Camera.SaveErrors()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.PlotCamera"><code class="docutils literal notranslate"><span class="pre">Camera.PlotCamera()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.PlotMultipleCameras"><code class="docutils literal notranslate"><span class="pre">Camera.PlotMultipleCameras()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.PlotCamera2D"><code class="docutils literal notranslate"><span class="pre">Camera.PlotCamera2D()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.PlotMultipleCameras2D"><code class="docutils literal notranslate"><span class="pre">Camera.PlotMultipleCameras2D()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.PrintAttributes"><code class="docutils literal notranslate"><span class="pre">Camera.PrintAttributes()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.FindHomography"><code class="docutils literal notranslate"><span class="pre">Camera.FindHomography()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.Court2Image"><code class="docutils literal notranslate"><span class="pre">Camera.Court2Image()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.Image2Court"><code class="docutils literal notranslate"><span class="pre">Camera.Image2Court()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Camera.AddManualCorrespondences()</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Camera.CalibrateCamera()</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Camera.Court2Image()</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Camera.ExtCalibration()</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Camera.FindHomography()</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">Camera.GetCornersFromSamples()</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Camera.GetCorrespondences()</span></code></a></li>
+<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">Camera.GetSampleFrames()</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">Camera.Image2Court()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.LoadCamera"><code class="docutils literal notranslate"><span class="pre">Camera.LoadCamera()</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">Camera.NewOptimalCameraMatrix()</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">Camera.PlotCamera()</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">Camera.PlotCamera2D()</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">Camera.PlotMultipleCameras()</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">Camera.PlotMultipleCameras2D()</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">Camera.PosError()</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">Camera.PrintAttributes()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.Camera.RepError"><code class="docutils literal notranslate"><span class="pre">Camera.RepError()</span></code></a></li>
+<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">Camera.SaveErrors()</span></code></a></li>
+<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">Camera.SaveParameters()</span></code></a></li>
+<li><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">Camera.TestUndistorsion()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras"><code class="docutils literal notranslate"><span class="pre">PlotCameras</span></code></a><ul>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.views"><code class="docutils literal notranslate"><span class="pre">PlotCameras.views</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.axes"><code class="docutils literal notranslate"><span class="pre">PlotCameras.axes</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.points"><code class="docutils literal notranslate"><span class="pre">PlotCameras.points</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.court_plan"><code class="docutils literal notranslate"><span class="pre">PlotCameras.court_plan</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.color_counter"><code class="docutils literal notranslate"><span class="pre">PlotCameras.color_counter</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.__init__"><code class="docutils literal notranslate"><span class="pre">PlotCameras.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.AddView"><code class="docutils literal notranslate"><span class="pre">PlotCameras.AddView()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.InitPlot"><code class="docutils literal notranslate"><span class="pre">PlotCameras.InitPlot()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.PlotImages"><code class="docutils literal notranslate"><span class="pre">PlotCameras.PlotImages()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.ShowViews"><code class="docutils literal notranslate"><span class="pre">PlotCameras.ShowViews()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras._on_click"><code class="docutils literal notranslate"><span class="pre">PlotCameras._on_click()</span></code></a></li>
+<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">PlotCameras.AddView()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.ClearPoints"><code class="docutils literal notranslate"><span class="pre">PlotCameras.ClearPoints()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PlotCameras.DrawPoints"><code class="docutils literal notranslate"><span class="pre">PlotCameras.DrawPoints()</span></code></a></li>
+<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">PlotCameras.InitPlot()</span></code></a></li>
+<li><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">PlotCameras.PlotImages()</span></code></a></li>
+<li><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">PlotCameras.ShowViews()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+<li><a class="reference internal" href="#CameraUtils.GetFrame"><code class="docutils literal notranslate"><span class="pre">GetFrame()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.PrintMtx"><code class="docutils literal notranslate"><span class="pre">PrintMtx()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.RW2courtIMG"><code class="docutils literal notranslate"><span class="pre">RW2courtIMG()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.SampleFile"><code class="docutils literal notranslate"><span class="pre">SampleFile()</span></code></a></li>
+<li><a class="reference internal" href="#CameraUtils.courtIMG2RW"><code class="docutils literal notranslate"><span class="pre">courtIMG2RW()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=f90d2953"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>

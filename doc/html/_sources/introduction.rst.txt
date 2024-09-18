@@ -1,0 +1,24 @@
+.. _intro:
+Introduction
+============
+The code present in the ``CODE`` folder of the repository can be divided into two groups. 
+
+1. The ``CameraUtils`` module contains the definition of classes, methods, and functions written for the project's purpose. 
+
+2. The Scripts:
+
+   - ``configuration.py`` is a Python file that contains user-definable settings that influence the behavior of scripts when they are executed. This approach was chosen for ease of development, as it simplifies the process compared to using command-line arguments.
+
+   - ``Calibration_INT.py`` is a script that, according to the configuration file:
+   
+     - Gets sample frames from chessboard calibration videos and saves them to file OR simply reads calibration images from file if they are already sampled.
+     - Performs the intrinsic calibration of the cameras, according to the type of camera (normal or wide-lens).
+     - Saves the found parameters to a ``.pkl`` file for later use.
+     - Shows the effect of camera calibration by undistorting the raw images.
+
+   - ``Calibration_EXT.py`` is a script that reads the intrinsic parameters from the ``.pkl`` files and launches the ``getCorrespondences()`` method to allow the user to identify key point correspondences between the real world and the images. Once a sufficient number of correspondences is acquired, the extrinsic calibration is performed, as well as a plane-to-plane mapping between the image and court floor.
+
+   - ``PointsHighlighting.py`` is a simple graphical user interface to display all camera views and highlight a selected point on all views, using the plane-to-plane mapping found with the previous script.
+
+   - ``Plotter.py`` is a utility script used to generate plots for the written report.
+

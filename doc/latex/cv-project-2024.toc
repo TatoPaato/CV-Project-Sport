@@ -1,0 +1,25 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Set up the project}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Virtual environments}{5}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Configuration}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview}{7}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Flags}{7}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Settings}{8}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Court and Plotting Settings}{9}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Court Points and Key Points}{9}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Calibration Constants}{9}{subsection.3.1.5}%
+\contentsline {chapter}{\numberline {4}CameraUtils}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Classes}{11}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Returns:}{16}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Raises:}{16}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Notes:}{16}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Parameters:}{18}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Returns:}{18}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}Notes:}{18}{subsection.4.1.6}%
+\contentsline {subsection}{\numberline {4.1.7}Internal Processing:}{18}{subsection.4.1.7}%
+\contentsline {section}{\numberline {4.2}Functions}{28}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Resources}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Links}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Camera Positions}{32}{section.5.2}%
+\contentsline {chapter}{Index}{33}{section*.89}%

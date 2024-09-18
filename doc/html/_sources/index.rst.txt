@@ -1,0 +1,20 @@
+CV-Project-2024 - Documentation
+###############################
+
+This is the project documentation, its aim is to make it more understandable and provide documentation for the `CameraUtils` module.
+
+Project `repository <https://github.com/TatoPaato/CV-Project.git>`_
+
+
+.. warning::
+   Before executing any script make sure to correctly :ref:`setup your environment <SetUp>`.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Content:
+
+   introduction
+   setup
+   conf
+   CameraUtils 
+   resources 

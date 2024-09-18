@@ -1,0 +1,45 @@
+.. _SetUp:
+
+Set up the project
+==================
+
+The project was:
+
+- developed and tested on Ubuntu 24.04 LTS.
+- tested on Ubuntu 22.04.
+- tested on WSL2 - Ubuntu.
+.. note::
+    IN WSL2, in order to display interactive plots make sure a backend such as `tk` is installed, by running::
+    
+        sudo apt install python3-tk
+
+
+Virtual environments
+--------------------
+The next steps are adapted from `this guide <https://linuxgenie.net/install-pip-ubuntu-24-04/>`_.
+
+.. warning:: 
+   According to the latest changes in Debian release, and therefore Ubuntu 24.04, Python packages are not installed or managed via PIP in the external environment/globally. If you use the pip command to manage the Python packages outside the Python environment, you will get the error: **externally managed environment**. The best solution is to create a Python environment for the project and manage all the necessary packages/modules there using **pip**.
+
+
+Install the ``venv`` module using ``apt``::
+
+    sudo apt install python3-venv
+
+Go to the folder with all the project files and create a virtual environment ``<ve_name>`` for Python and activate it using the source command::
+
+    python3 -m venv <ve_name>
+    source <ve_name>/bin/activate
+
+You can now install the required packages by running::
+
+    pip install -r requirements.txt
+
+.. note:: 
+   In Ubuntu 24.04, both pip and pip3 commands refer to python3-pip, as Python 2 is no longer officially supported.
+
+**pip** can be installed globally by running::
+
+    sudo apt install python3-pip
+
+If everything is correctly setup, you are ready to launch the scripts.

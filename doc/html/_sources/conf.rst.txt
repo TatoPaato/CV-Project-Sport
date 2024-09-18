@@ -1,0 +1,152 @@
+Configuration
+=============
+
+This script contains the necessary configurations for the calibration scripts used in the project.
+Here there is a brief explanation of the options and parameters that are configurable.
+
+
+Overview
+--------
+
+1. **Flags**.
+2. **Settings**: Specifies camera properties, and their positions.
+3. **Folders and File Paths**: Paths used for video input, calibration frames, and outputs.
+4. **Court Points and Key Points**: Predefined reference points on the court for calibration correspondences.
+5. **Constants**.
+
+Flags
+^^^^^
+
+- `SAVE_PARAM`: ``bool`` 
+  
+  Controls whether the camera parameters are saved to a file after calibration.
+  If ``True``, parameters are saved to `PARAMETER_FOLDER`
+
+- `SHOW_TEST_FRAME`: ``bool`` 
+  
+  If ``True``, shows before/after intrinsic calibration frames of the camera.
+
+- `GET_SAMPLE`: ``bool`` (default: False)
+  
+  If ``True``, scans videos to get sample chessboard frames. Otherwise, uses existing frames stored in `SAMPLE_FOLDER`.
+
+- `READ_PARAM`: ``bool`` 
+  
+  Whether to read camera parameters from a pickle file.
+
+- `CROP`: ``bool`` (default: True)
+  
+  If ``True``, crops undistorted images after processing.
+
+Settings
+^^^^^^^^
+
+- `NUM_OF_SAMPLES`: ``int`` 
+  
+  Number of calibration frames to sample.
+
+- `FRAME_SKIP`: ``int`` 
+  
+  Number of frames to skip between each calibration frame extraction.
+
+- `SQUARE_SIZE`: ``float`` 
+  
+  The size of a chessboard square.
+
+- `CAMS`: ``dict``
+  
+  A dictionary that stores basic information about each camera. Includes:
+  
+  - **number**: The camera's number.
+  - **WIDE**: ``bool`` flag indicating if the camera is a wide-angle camera.
+  - **position**: ``list`` of floats that specify the camera's position in 3D space (in meters).
+
+- `SCALE`: ``float`` (default: 0.2)
+  
+  Scaling factor 0 \< SCALE \< 1 for reducing plot resolution to speed up plotting.
+
+- `TO_CAL`: ``list``
+  
+  List of cameras to handle, calibrate, and plot during the calibration process.
+
+Chessboard Calibration Setup
+^^^^^^^^^^^-------
+
+- `CHESSBOARD_SIZES`: ``dict``
+  
+  Specifies the size of the chessboards used for calibration for each camera. Each entry is a tuple representing the rows and columns of the chessboard (e.g., (5, 7) for 5 rows and 7 columns). Change these values only if you are using different calibration videos.
+
+Folders and File Paths
+^^^^^^^^^^^-
+
+- `VIDEO_FOLDER`: ``str`` (default: "./Video")
+  
+  Path to the folder containing game videos.
+
+- `FORMAT`: ``str`` 
+  
+  The video format used for calibration and game videos.
+
+- `CALIBRATION_FOLDER`: ``str`` (default: "./Video/Calibration")
+  
+  Path to the folder containing calibration videos with chessboards.
+
+- `SAMPLE_FOLDER`: ``str`` (default: "./Cameras/ChessBoardSamples")
+  
+  Destination folder for sampled frames from calibration videos.
+
+- `SAMPLE_PATH`: ``str`` (default: "./Video/GAME/Samples/")
+  
+  Path to the folder where samples from game videos are stored.
+
+- `UNDISTORTED_SAMPLES`: ``str`` (default: "./Cameras/UndistortedSamples")
+  
+  Path to store undistorted image samples after calibration.
+
+- `PARAMETER_FOLDER`: ``str`` (default: "./Cameras/Parameters")
+  
+  Folder to store the camera parameters after calibration.
+
+- `ERROR_FOLDER`: ``str`` (default: "./Cameras/Errors")
+  
+  Folder to store the calibration errors.
+
+- `PLOT_FOLDER`: ``str`` (default: "./Plots")
+  
+  Folder to store plots.
+
+Court and Plotting Settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- `SHOW_COURT`: ``bool`` (default: True)
+  
+  Whether to display the court in plots.
+
+- `COURT_IMG_LR`, `COURT_IMG_MR`, `COURT_IMG_XL`: ``str``
+  
+  Paths to court images of varying resolutions (low, medium, and extra-large) for different plotting scenarios.
+
+- `COURT_IMG_QUALITY`: ``int`` (default: 1)
+  
+  Controls the rendering quality of the court image. Lower values correspond to higher quality but slower rendering.
+
+Court Points and Key Points
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- `COURT_POINTS`: ``np.array``
+  
+  A numpy array defining key reference points on the court for calibration purposes. Points are defined for both volleyball and basketball courts, and they correspond to real-world 3D coordinates (in meters). These points are used for correspondence matching in the calibration process.
+
+Calibration Constants
+^^^^^^^^^^^^^^^^^^^^^
+
+- `MIN_POINTS`: ``int`` (default: 6)
+  
+  The minimum number of points required for external calibration, specifically when using planar 3D points. This ensures compatibility with the calibration system's requirement of using at least 6 points for accurate pose estimation and homography decomposition.
+
+  .. note::
+    On the minimum number of points:
+
+    - `cv2.solvePnP`: Needs at least 6 points for non-planar object points and 4 points for planar objects.
+    - `cv2.findHomography`: Requires at least 4 points but uses a minimum of 6 in this code to improve stability and consistency.
+
