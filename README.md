@@ -30,7 +30,7 @@ Code (zip folder + git) (this repository) containing:
 - Output images, videos, `.pkl` files of calibrated cameras.
 - Documentation [HTML](doc/html/index.html), [PDF](doc/latex/cv-project-2024.pdf)
 - Short written [report](CV-Project-Bonan.pdf) with results
-- 5' video including:
+- 5' [video](https://drive.google.com/file/d/1_eagqV0cnGDhJwRg1QL3vlzYxVAOf9_P/view?usp=drive_link)  (on a G-drive) including:
   - Motivations and background
   - Methodology
   - Results
